@@ -4,6 +4,7 @@ namespace App;
 
 
 use App\Post;
+use App\Role;
 use App\UserProfile;
 use App\Scopes\VerifiedUsers;
 use App\Scopes\NotVerifiedUsers;
@@ -55,4 +56,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+ public function roles()
+ {
+     return $this->belongsToMany('App\Role', 'role_user');
+ }
 }
